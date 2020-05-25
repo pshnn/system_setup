@@ -1,3 +1,5 @@
+---
+
 - name: "Clone dotfiles repository"
   become: no
   git:

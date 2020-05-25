@@ -25,3 +25,5 @@
     - include: setup_vim.yml
 
     - include: setup_tmux.yml
+
+    - include: setup_rvm.yml

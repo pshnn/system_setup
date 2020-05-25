@@ -1,0 +1,14 @@
+- name: "Download oh-my-zsh install script"
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install.sh
+
+- name: "Install oh-my-zsh"
+  shell: sh /tmp/install.sh
+  register: command_result
+  failed_when: "'You already have Oh My Zsh installed.' in command_result"
+
+- name: "Remove oh-my-zsh install file"
+  file:
+    path: /tmp/install.sh
+    state: absent

@@ -1,0 +1,22 @@
+---
+
+- name: "Setup Manjaro (ArchLinux)"
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: "Update cache"
+      pacman:
+        update_cache: yes
+
+    - name: "Install Alacritty"
+      pacman:
+        name: alacritty
+        state: present
+
+    - include: setup_dotfiles.yml
+
+    - include: setup_zsh.yml
+
+    - include: setup_oh_my_zsh.yml
+

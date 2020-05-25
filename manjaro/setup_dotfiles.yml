@@ -2,20 +2,6 @@
   become: no
   git:
     repo: git@github.com:pshnn/dotfiles.git
-    dest: ~/Documents/Coding/Misc/dotfiles
+    dest: "{{ dotfiles_dir }}"
     accept_hostkey: yes
-
-- name: "Add symlink for .tmux.conf"
-  become: no
-  file:
-    src: ~/Documents/Coding/Misc/dotfiles/.tmux.conf
-    dest: ~/.tmux.conf
-    state: link
-
-- name: "Add symlink for .zshrc"
-  become: no
-  file:
-    src: ~/Documents/Coding/Misc/dotfiles/.zshrc
-    dest: ~/.zshrc
-    state: link
 

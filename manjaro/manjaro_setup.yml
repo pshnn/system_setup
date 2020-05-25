@@ -12,10 +12,7 @@
       pacman:
         update_cache: yes
 
-    - name: "Install Alacritty"
-      pacman:
-        name: alacritty
-        state: present
+    - include: "{{ root_dir }}/pacman/install_alacritty.yml"
 
     - include: setup_dotfiles.yml
 
@@ -24,3 +21,5 @@
     - include: setup_oh_my_zsh.yml
 
     - include: setup_vim.yml
+
+    - include: setup_tmux.yml

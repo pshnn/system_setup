@@ -1,9 +1,13 @@
 ---
 
-- name: "Install zsh"
-  pacman:
-    name: zsh
-    state: present
+- include: "{{ root_dir }}/pacman/install_zsh.yml"
+
+- name: "Add symlink for .zshrc"
+  become: no
+  file:
+    src: "{{ dotfiles_dir }}/.zshrc"
+    dest: ~/.zshrc
+    state: link
 
 - name: "Make zsh default shell"
   user:

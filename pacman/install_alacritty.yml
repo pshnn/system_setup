@@ -1,0 +1,6 @@
+---
+
+- name: "Install Alacritty via pacman"
+  pacman:
+    name: alacritty
+    state: present

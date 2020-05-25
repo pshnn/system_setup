@@ -1,0 +1,10 @@
+---
+
+- include: "{{ root_dir }}/pacman/install_tmux.yml"
+
+- name: "Add symlink for .tmux.conf"
+  become: no
+  file:
+    src: "{{ dotfiles_dir }}/.tmux.conf"
+    dest: ~/.tmux.conf
+    state: link

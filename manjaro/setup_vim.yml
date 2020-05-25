@@ -1,0 +1,43 @@
+---
+
+- include: "{{ root_dir }}/pacman/install_vim.yml"
+
+- name: "Add symlink for .vimrc"
+  become: no
+  file:
+    src: "{{ dotfiles_dir }}/.vimrc"
+    dest: ~/.vimrc
+    state: link
+
+- name: "Add symlink for .editorconfig"
+  become: no
+  file:
+    src: "{{ dotfiles_dir }}/.editorconfig"
+    dest: ~/.editorconfig
+    state: link
+
+- name: "Clone vim packages"
+  become: no
+  loop:
+    - repo: "git@github.com:morhetz/gruvbox.git"
+      dest: "~/.vim/pack/vendor/opt/gruvbox"
+    - repo: "git@github.com:tpope/vim-fugitive.git"
+      dest: "~/.vim/pack/vendor/opt/vim_fugitive"
+    - repo: "git@github.com:airblade/vim-gitgutter.git"
+      dest: "~/.vim/pack/vendor/opt/vim_gitgutter"
+    - repo: "git@github.com:editorconfig/editorconfig-vim.git"
+      dest: "~/.vim/pack/vendor/opt/editorconfig_vim"
+    - repo: "git@github.com:dense-analysis/ale.git"
+      dest: "~/.vim/pack/vendor/opt/ale"
+    - repo: "git@github.com:easymotion/vim-easymotion.git"
+      dest: "~/.vim/pack/vendor/opt/vim_easymotion"
+    - repo: "git@github.com:tpope/vim-surround.git"
+      dest: "~/.vim/pack/vendor/opt/vim_surround"
+    - repo: "git@github.com:mattn/emmet-vim.git"
+      dest: "~/.vim/pack/vendor/opt/emmet_vim"
+    - repo: "git@github.com:keith/rspec.vim.git"
+      dest: "~/.vim/pack/vendor/start/rspec_syntax"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    accept_hostkey: yes

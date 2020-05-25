@@ -4,6 +4,9 @@
   hosts: localhost
   connection: local
   become: yes
+  vars:
+    root_dir: "{{ ansible_local.system_setup.general.root_dir }}"
+    dotfiles_dir: "{{ ansible_local.system_setup.general.dotfiles_dir }}"
   tasks:
     - name: "Update cache"
       pacman:
@@ -20,3 +23,4 @@
 
     - include: setup_oh_my_zsh.yml
 
+    - include: setup_vim.yml

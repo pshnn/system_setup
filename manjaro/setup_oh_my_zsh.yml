@@ -1,16 +1,24 @@
 ---
 
+- name: "Check if Oh My Zsh was installed"
+  stat:
+    path: ~/.oh-my-zsh
+  register: path
+
 - name: "Download oh-my-zsh install script"
   get_url:
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     dest: /tmp/install.sh
+  when: path.stat.is_dir is defined and path.stat.isdir
 
 - name: "Install oh-my-zsh"
   shell: sh /tmp/install.sh
   register: command_result
   failed_when: "'You already have Oh My Zsh installed.' in command_result"
+  when: path.stat.is_dir is defined and path.stat.isdir
 
 - name: "Remove oh-my-zsh install file"
   file:
     path: /tmp/install.sh
     state: absent
+  when: path.stat.is_dir is defined and path.stat.isdir

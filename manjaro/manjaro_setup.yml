@@ -16,7 +16,9 @@
 
     - include: "{{ root_dir }}/pacman/install_telegram.yml"
 
-    - include: setup_dotfiles.yml
+    - include: clone_dotfiles.yml
+
+    - include: setup_xmodmap.yml
 
     - include: setup_zsh.yml
 

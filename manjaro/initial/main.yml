@@ -1,9 +1,10 @@
 ---
 
+- include: "{{ root_dir }}/pacman/update_cache.yml"
+
 - name: "Clone dotfiles repository"
   become: no
   git:
     repo: git@github.com:pshnn/dotfiles.git
     dest: "{{ dotfiles_dir }}"
     accept_hostkey: yes
-

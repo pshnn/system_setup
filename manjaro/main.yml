@@ -1,0 +1,23 @@
+---
+
+- include: initial/main.yml
+
+- include: system/main.yml
+
+- include: setup_zsh.yml
+
+- include: setup_oh_my_zsh.yml
+
+- include: setup_vim.yml
+
+- include: setup_tmux.yml
+
+- include: setup_rvm.yml
+
+- include: "{{ root_dir }}/pacman/install_scheme.yml"
+
+- include: "{{ root_dir }}/pacman/install_alacritty.yml"
+
+- include: "{{ root_dir }}/pacman/install_telegram.yml"
+
+- include: setup_docker.yml

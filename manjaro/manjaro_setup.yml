@@ -1,6 +1,6 @@
 ---
 
-- name: "Setup Manjaro (ArchLinux)"
+- name: "Setup Manjaro"
   hosts: localhost
   connection: local
   become: yes
@@ -8,17 +8,9 @@
     root_dir: "{{ ansible_local.system_setup.general.root_dir }}"
     dotfiles_dir: "{{ ansible_local.system_setup.general.dotfiles_dir }}"
   tasks:
-    - name: "Update cache"
-      pacman:
-        update_cache: yes
+    - include: initial/main.yml
 
-    - include: "{{ root_dir }}/pacman/install_alacritty.yml"
-
-    - include: "{{ root_dir }}/pacman/install_telegram.yml"
-
-    - include: clone_dotfiles.yml
-
-    - include: setup_xmodmap.yml
+    - include: system/main.yml
 
     - include: setup_zsh.yml
 
@@ -29,3 +21,10 @@
     - include: setup_tmux.yml
 
     - include: setup_rvm.yml
+
+    - include: "{{ root_dir }}/pacman/install_alacritty.yml"
+
+    - include: "{{ root_dir }}/pacman/install_telegram.yml"
+
+    - include: setup_docker.yml
+

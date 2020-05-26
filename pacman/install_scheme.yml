@@ -1,0 +1,6 @@
+---
+
+- name: "Install Scheme language via pacman"
+  pacman:
+    name: mit-scheme
+    state: present

@@ -4,5 +4,5 @@
   become: no
   file:
     src: "{{ dotfiles_dir }}/.Xmodmap"
-    dest: ~/.tmux.conf
+    dest: ~/.Xmodmap
     state: link

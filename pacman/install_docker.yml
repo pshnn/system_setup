@@ -1,0 +1,6 @@
+---
+
+- name: "Install Docker via pacman"
+  pacman:
+    name: docker
+    state: present

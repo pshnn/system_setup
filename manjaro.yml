@@ -1,0 +1,12 @@
+---
+
+- name: "Setup Manjaro"
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    root_dir: "{{ ansible_local.system_setup.general.root_dir }}"
+    dotfiles_dir: "{{ ansible_local.system_setup.general.dotfiles_dir }}"
+  tasks:
+    # - include: manjaro/main.yml
+    - include: pacman/install_scheme.yml

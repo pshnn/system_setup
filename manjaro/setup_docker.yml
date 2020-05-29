@@ -3,11 +3,13 @@
 - include: "{{ root_dir }}/pacman/install_docker.yml"
 
 - name: "Start Docker service"
+  become: yes
   systemd:
     name: docker
     state: started
 
 - name: "Add user to Docker group"
+  become: yes
   user:
     name: pshnn
     groups: docker

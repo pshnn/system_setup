@@ -1,6 +1,7 @@
 ---
 
 - name: "Install vim package via pacman"
+  become: yes
   pacman:
     name: vim
     state: present

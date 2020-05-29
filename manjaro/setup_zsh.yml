@@ -10,6 +10,7 @@
     state: link
 
 - name: "Make zsh default shell"
+  become: yes
   user:
     name: pshnn
     shell: /usr/bin/zsh

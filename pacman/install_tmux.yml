@@ -1,6 +1,7 @@
 ---
 
 - name: "Install tmux package via pacman"
+  become: yes
   pacman:
     name: tmux
     state: present

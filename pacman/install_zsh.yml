@@ -1,6 +1,7 @@
 ---
 
 - name: "Install zsh package via pacman"
+  become: yes
   pacman:
     name: zsh
     state: present

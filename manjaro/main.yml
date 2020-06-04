@@ -20,4 +20,6 @@
 
 - include: "{{ root_dir }}/pacman/install_telegram.yml"
 
+- include: "{{ root_dir }}/yay/install_slack.yml"
+
 - include: setup_docker.yml

@@ -1,0 +1,7 @@
+---
+
+- name: "Install Crystal compiler via pacman"
+  become: yes
+  pacman:
+    name: crystal
+    state: present

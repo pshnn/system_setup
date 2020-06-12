@@ -14,3 +14,5 @@
     name: pshnn
     groups: docker
     append: yes
+
+- include: "{{ root_dir }}/pacman/install_docker_compose.yml"

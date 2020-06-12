@@ -1,0 +1,5 @@
+---
+
+- include: "{{ root_dir }}/pacman/install_crystal.yml"
+
+- include: "{{ root_dir }}/pacman/install_shards.yml"

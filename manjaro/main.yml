@@ -14,6 +14,8 @@
 
 - include: setup_rvm.yml
 
+- include: setup_crystal.yml
+
 - include: "{{ root_dir }}/pacman/install_scheme.yml"
 
 - include: "{{ root_dir }}/pacman/install_alacritty.yml"

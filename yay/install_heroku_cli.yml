@@ -1,4 +1,7 @@
 ---
 
+# NOTE: This task in the end asks for sudo password. We need to fix this.
+#   We can use some ansible add-on to use yay as any other package manager with
+#   ansible or add some sort of flag to this shell command.
 - name: "Install Heroku CLI via yay"
-  shell: yay -S --needed --noconfirm slack-desktop
+  shell: yay -S --needed --noconfirm heroku-cli

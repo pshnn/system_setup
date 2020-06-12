@@ -1,0 +1,7 @@
+---
+
+- name: "Install Shards package manager via pacman"
+  become: yes
+  pacman:
+    name: shards
+    state: present

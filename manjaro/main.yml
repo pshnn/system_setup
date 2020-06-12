@@ -22,4 +22,6 @@
 
 - include: "{{ root_dir }}/yay/install_slack.yml"
 
+- include: "{{ root_dir }}/yay/install_heroku_cli.yml"
+
 - include: setup_docker.yml

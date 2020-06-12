@@ -1,0 +1,4 @@
+---
+
+- name: "Install Heroku CLI via yay"
+  shell: yay -S --needed --noconfirm slack-desktop

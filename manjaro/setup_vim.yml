@@ -38,6 +38,8 @@
       dest: "{{ optional_packages_path }}/vim_surround"
     - repo: "git@github.com:mattn/emmet-vim.git"
       dest: "{{ optional_packages_path }}/emmet_vim"
+    - repo: "git@github.com:vim-crystal/vim-crystal.git"
+      dest: "{{ optional_packages_path }}/vim_crystal"
     - repo: "git@github.com:keith/rspec.vim.git"
       dest: "{{ startup_packages_path }}/rspec_syntax"
   git:

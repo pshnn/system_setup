@@ -7,17 +7,4 @@
     root_dir: "{{ ansible_local.system_setup.general.root_dir }}"
     dotfiles_dir: "{{ ansible_local.system_setup.general.dotfiles_dir }}"
   tasks:
-
-    - name: "Add symlink for .zshrc"
-      become: no
-      file:
-        src: "{{ dotfiles_dir }}/.zshrc"
-        dest: ~/.zshrc
-        state: link
-
-    - name: "Add symlink for .alacritty.yml"
-      become: no
-      file:
-        src: "{{ dotfiles_dir }}/.alacritty.yml"
-        dest: ~/.alacritty.yml
-        state: link
+    - include: fedora/main.yml

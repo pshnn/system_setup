@@ -1,0 +1,21 @@
+---
+
+- include: "{{ root_dir }}/dnf/install_snap.yml"
+
+- name: "Add symlink for .zshrc"
+  become: no
+  file:
+    src: "{{ dotfiles_dir }}/.zshrc"
+    dest: ~/.zshrc
+    state: link
+
+- name: "Add symlink for .alacritty.yml"
+  become: no
+  file:
+    src: "{{ dotfiles_dir }}/.alacritty.yml"
+    dest: ~/.alacritty.yml
+    state: link
+
+- include: "{{ root_dir }}/dnf/install_vim.yml"
+
+- include: "{{ root_dir }}/common/setup_vim.yml"

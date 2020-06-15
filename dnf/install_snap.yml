@@ -1,0 +1,7 @@
+---
+
+- name: "Install snap via dnf"
+  become: yes
+  dnf:
+    name: snapd
+    state: present
